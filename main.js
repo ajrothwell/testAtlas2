@@ -1,18 +1,22 @@
+
+if (location.hostname !== 'localhost') {
+  console.log = console.info = console.debug = console.error = function () {};
+}
+
 var BASE_CONFIG_URL = 'https://cdn.rawgit.com/ajrothwell/mapboard-base-config/252debf3c4089478419f78e4bdfe26486988d236/config.js';
 var GATEKEEPER_KEY = '82fe014b6575b8c38b44235580bc8b11';
+
 
 mapboard.default({
   baseConfig: BASE_CONFIG_URL,
   gatekeeperKey: GATEKEEPER_KEY,
-  components: {
-    type: 'topic-set',
-    options: {
-      // defaultTopic: 'property'
-    }
-  },
-  panels: [
-    'topics',
-    'map'
+  components: [
+    {
+      type: 'topic-set',
+      options: {
+        // defaultTopic: 'property'
+      }
+    },
   ],
   parcels: {
     pwd: {
@@ -34,9 +38,6 @@ mapboard.default({
       getByLatLngIfIdFails: true
     }
   },
-  router: {
-    enabled: true
-  },
   greeting: {
     initialMessage: '\
       <h2>Atlas is your front door to the City of Philadelphia.</h2>\
@@ -52,13 +53,6 @@ mapboard.default({
       </div>\
       <p>To get started, click anywhere on the map, or type an address, intersection, property assessment account number, or Department of Records Map Registry number into the search box.</p>\
     ',
-  },
-  map: {
-    defaultBasemap: 'pwd',
-    defaultIdentifyFeature: 'address-marker',
-    imagery: {
-      enabled: true
-    },
   },
   dataSources: {
     opa: {
@@ -76,43 +70,47 @@ mapboard.default({
   },
   topics: [
     {
-      key: 'property',
-      icon: 'home',
-      label: 'Property Assessments',
-      parcels: 'pwd',
-      identifyFeature: 'address-marker',
-      components: [
-        // {
-        //   type: 'callout',
-        //   slots: {
-        //     text: '\
-        //       Property assessment and sale information for this address. Source: Office of Property Assessments (OPA). OPA was formerly a part of the Bureau of Revision of Taxes (BRT) and some City records may still use that name.\
-        //     '
-        //   }
-        // },
-      ],
-    },
-    {
-      key: 'deeds',
-      icon: 'book',
-      label: 'Deeds',
-      parcels: 'dor',
-      identifyFeature: 'dor-parcel',
-      components: [
-        // {
-        //   type: 'callout',
-        //   slots: {
-        //     text: '\
-        //       Deed information and document transactions for this address.\
-        //       The map faithfully reflects property boundaries as described in \
-        //       recorded deeds including multiple types of easements.\
-        //       The property boundaries displayed on the map are for reference \
-        //       only and should not be used in place of the recorded deeds or \
-        //       land surveys. Source: Department of Records\
-        //     ',
-        //   }
-        // },
-      ],
+      key: 'snot',
+      components: [],
     }
   ],
+
+      // icon: 'home',
+  //     label: 'Property Assessments',
+  //     parcels: 'pwd',
+  //     identifyFeature: 'address-marker',
+  //     components: [
+  //       {
+  //         type: 'callout',
+  //         slots: {
+  //           text: '\
+  //             Property assessment and sale information for this address. Source: Office of Property Assessments (OPA). OPA was formerly a part of the Bureau of Revision of Taxes (BRT) and some City records may still use that name.\
+  //           '
+  //         }
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     key: 'deeds',
+  //     icon: 'book',
+  //     label: 'Deeds',
+  //     parcels: 'dor',
+  //     identifyFeature: 'dor-parcel',
+  //     components: [
+  //       {
+  //         type: 'callout',
+  //         slots: {
+  //           text: '\
+  //             Deed information and document transactions for this address.\
+  //             The map faithfully reflects property boundaries as described in \
+  //             recorded deeds including multiple types of easements.\
+  //             The property boundaries displayed on the map are for reference \
+  //             only and should not be used in place of the recorded deeds or \
+  //             land surveys. Source: Department of Records\
+  //           ',
+  //         }
+  //       },
+  //     ],
+  //   }
+  // ],
 });
