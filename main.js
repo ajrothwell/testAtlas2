@@ -70,47 +70,43 @@ mapboard.default({
   },
   topics: [
     {
-      key: 'snot',
-      components: [],
+      key: 'property',
+      icon: 'home',
+      label: 'Property Assessments',
+      parcels: 'pwd',
+      identifyFeature: 'address-marker',
+      components: [
+        {
+          type: 'callout',
+          slots: {
+            text: '\
+              Property assessment and sale information for this address. Source: Office of Property Assessments (OPA). OPA was formerly a part of the Bureau of Revision of Taxes (BRT) and some City records may still use that name.\
+            '
+          }
+        },
+      ],
+    },
+    {
+      key: 'deeds',
+      icon: 'book',
+      label: 'Deeds',
+      parcels: 'dor',
+      identifyFeature: 'dor-parcel',
+      components: [
+        {
+          type: 'callout',
+          slots: {
+            text: '\
+              Deed information and document transactions for this address.\
+              The map faithfully reflects property boundaries as described in \
+              recorded deeds including multiple types of easements.\
+              The property boundaries displayed on the map are for reference \
+              only and should not be used in place of the recorded deeds or \
+              land surveys. Source: Department of Records\
+            ',
+          }
+        },
+      ],
     }
   ],
-
-      // icon: 'home',
-  //     label: 'Property Assessments',
-  //     parcels: 'pwd',
-  //     identifyFeature: 'address-marker',
-  //     components: [
-  //       {
-  //         type: 'callout',
-  //         slots: {
-  //           text: '\
-  //             Property assessment and sale information for this address. Source: Office of Property Assessments (OPA). OPA was formerly a part of the Bureau of Revision of Taxes (BRT) and some City records may still use that name.\
-  //           '
-  //         }
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     key: 'deeds',
-  //     icon: 'book',
-  //     label: 'Deeds',
-  //     parcels: 'dor',
-  //     identifyFeature: 'dor-parcel',
-  //     components: [
-  //       {
-  //         type: 'callout',
-  //         slots: {
-  //           text: '\
-  //             Deed information and document transactions for this address.\
-  //             The map faithfully reflects property boundaries as described in \
-  //             recorded deeds including multiple types of easements.\
-  //             The property boundaries displayed on the map are for reference \
-  //             only and should not be used in place of the recorded deeds or \
-  //             land surveys. Source: Department of Records\
-  //           ',
-  //         }
-  //       },
-  //     ],
-  //   }
-  // ],
 });
